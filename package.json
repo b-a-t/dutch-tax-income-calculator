@@ -1,11 +1,12 @@
 {
-  "name": "dutch-tax-income-calculator",
-  "version": "1.1.0",
+  "name": "dutch-tax-income-calculator-frontend",
+  "version": "2.0.4",
   "description": "dutch-tax-income-calculator",
   "main": "app.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --progress --colors --watch --mode development",
     "postinstall": "webpack",
+    "build": "webpack -p --progress --colors && cp ./src/manifest.json ./dist/manifest.json && cp ./src/sw.js ./dist/dit-sw.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,17 +19,22 @@
     "url": "https://github.com/stevermeister/dutch-tax-income-calculator/issues"
   },
   "homepage": "https://github.com/stevermeister/dutch-tax-income-calculator",
+  "dependencies": {
+    "dutch-tax-income-calculator": "^0.2.0"
+  },
   "devDependencies": {
-    "babel-core": "6.10.4",
-    "babel-loader": "6.2.4",
-    "babel-preset-es2015": "6.9.0",
-    "css-loader": "0.23.1",
-    "html-webpack-plugin": "2.21.0",
-    "json-loader": "0.5.4",
-    "ng-annotate-loader": "0.1.0",
-    "ng-cache-loader": "0.0.16",
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "0.1.19",
+    "css-loader": "3.4.1",
+    "html-loader": "0.5.5",
+    "html-webpack-plugin": "3.2.0",
     "style-loader": "0.13.1",
-    "webpack": "1.13.1",
-    "webpack-dev-server": "1.14.1"
+    "webpack": "4.41.5",
+    "webpack-cli": "3.1.2",
+    "webpack-dev-server": "3.10.1",
+    "webpack-manifest-plugin": "2.0.4"
   }
 }
